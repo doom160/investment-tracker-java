@@ -22,11 +22,10 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
-import com.renfa.service.CSVService;
-import com.renfa.service.UserService;
-import com.renfa.helper.CSVHelper;
+import com.renfa.service.optionService;
+import com.renfa.service.StockService;
+import com.renfa.service.WatchlistService;
 import com.renfa.message.ResponseMessage;
 import com.renfa.model.User;
 
@@ -36,10 +35,13 @@ import com.renfa.model.User;
 public class UserController {
 
   @Autowired
-  CSVService fileService;
+  OptionService optionService;
 
   @Autowired
-  UserService userService;
+  StockService stockService;
+
+  @Autowired
+  WatchlistService watchlistService;
 
   @PostMapping("/users/upload")
   public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
