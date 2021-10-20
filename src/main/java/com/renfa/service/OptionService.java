@@ -15,11 +15,13 @@ import com.renfa.model.User;
 import com.renfa.repository.UserRepository;
 import com.renfa.exception.UserQueryException;
 
+//https://query2.finance.yahoo.com/v7/finance/options/aapl220121C00025000
+
 @Service
 public class OptionService {
   @Autowired
   UserRepository repository;
-  
+
   public List<User> getAllUsers() {
     return repository.findAll();
   }
