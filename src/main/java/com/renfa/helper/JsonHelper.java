@@ -1,4 +1,4 @@
-package so4308554;
+package com.renfa.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import java.nio.charset.Charset;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class JsonReader {
+public class JsonUtil {
 
   private static String readAll(Reader rd) throws IOException {
     StringBuilder sb = new StringBuilder();
@@ -34,9 +34,9 @@ public class JsonReader {
     }
   }
 
-  public static void main(String[] args) throws IOException, JSONException {
+ /* public static void main(String[] args) throws IOException, JSONException {
     JSONObject json = readJsonFromUrl("https://graph.facebook.com/19292868552");
     System.out.println(json.toString());
     System.out.println(json.get("id"));
-  }
+  }*/
 }

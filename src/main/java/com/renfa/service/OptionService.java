@@ -10,16 +10,16 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
-import com.renfa.helper.CSVHelper;
+import com.renfa.helper.JsonHelper;
 import com.renfa.model.User;
 import com.renfa.repository.UserRepository;
 import com.renfa.exception.UserQueryException;
 
 @Service
-public class UserService {
+public class OptionService {
   @Autowired
   UserRepository repository;
-
+  
   public List<User> getAllUsers() {
     return repository.findAll();
   }
