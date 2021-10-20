@@ -1,4 +1,4 @@
-package com.renfa.util;
+package com.renfa.helper;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import java.nio.charset.Charset;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class JsonUtil {
+public class JsonHelper {
 
   private static String readAll(Reader rd) throws IOException {
     StringBuilder sb = new StringBuilder();
