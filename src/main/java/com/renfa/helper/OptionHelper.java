@@ -15,10 +15,14 @@ public class OptionHelper {
 
     public static float getOptionValue(String optionCode) {
         JSONObject json;
+        float value = 0f;
 
         try {
             json = JsonHelper.readJsonFromUrl(String.format("https://query2.finance.yahoo.com/v7/finance/options/%s", optionCode));
-            json.getAsJsonObject("optionChain").getAsJsonObject("result").JsonArray();
+            //json.get("optionChain").get("result").JsonArray();
+            JSONObject marketData = json.getJSONObject("optionChain").getJSONArray("result").getJSONObject(0).getJSONObject("quote");
+            value = (marketData.getFloat("bid") + marketData.getFloat("ask")) / 2f;
+
             //https://stackoverflow.com/questions/50785794/how-to-get-value-in-json-array-using-gson/50785893
 
         } catch (JSONException ex){
@@ -26,6 +30,6 @@ public class OptionHelper {
         } catch (Exception ex){
             System.out.println("OptionHelper.getOptionValue: Fail to get data?");
         }
-        return 0f;
+        return value;
     }
 }

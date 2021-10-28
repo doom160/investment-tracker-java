@@ -11,13 +11,13 @@ import org.springframework.data.domain.Pageable;
 
 import com.renfa.model.Watchlist;
 
-public interface WatchlistRepository extends JpaRepository<User, Long> {
+public interface WatchlistRepository extends JpaRepository<Watchlist, Long> {
 
     @Query(value = "UPDATE Watchlist set last_updated = CURRENT_TIMESTAMP where w.ticker = ?1")
-    List<User> updateWatchlistLastUpdate(String ticker);
+    List<Watchlist> updateWatchlistLastUpdate(String ticker);
 
     @Query(value = "SELECT * FROM Watchlist w WHERE w.ticker = ?1")
-    List<User> findById(String ticker);
+    List<Watchlist> findById(String ticker);
 
     @Transactional
     @Modifying
