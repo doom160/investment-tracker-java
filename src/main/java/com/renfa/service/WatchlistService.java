@@ -11,14 +11,15 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.renfa.model.Watchlist;
-import com.renfa.repository.WatchlistRepository;
+//import com.renfa.repository.WatchlistRepository;
 
 @Service
 public class WatchlistService {
-  @Autowired
-  WatchlistRepository repository;
+  //@Autowired
+  //WatchlistRepository repository;
 
   public List<Watchlist> getAllWatchlist() {
-    return repository.findAll();
+   // return repository.findAll();
+   return null;
   }
 }
