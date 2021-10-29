@@ -13,7 +13,6 @@ import com.renfa.helper.OptionHelper;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Getter
 @Setter
 public class Option {

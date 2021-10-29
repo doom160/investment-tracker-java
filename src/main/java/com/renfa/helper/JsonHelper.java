@@ -8,6 +8,9 @@ import java.io.Reader;
 import java.net.URL;
 import java.nio.charset.Charset;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -32,6 +35,10 @@ public class JsonHelper {
     } finally {
       is.close();
     }
+  }
+
+  public static String objectToString(Object obj) throws JsonProcessingException {
+    return new ObjectMapper().writeValueAsString(obj);
   }
 
  /* public static void main(String[] args) throws IOException, JSONException {

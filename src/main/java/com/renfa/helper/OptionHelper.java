@@ -21,7 +21,6 @@ public class OptionHelper {
         JSONObject json;
         Option opt = new Option();
 
-
         try {
             json = JsonHelper.readJsonFromUrl(String.format("https://query2.finance.yahoo.com/v7/finance/options/%s", optionCode));
            // System.out.println(String.format("https://query2.finance.yahoo.com/v7/finance/options/%s", optionCode));

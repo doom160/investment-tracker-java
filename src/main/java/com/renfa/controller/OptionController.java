@@ -25,7 +25,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.renfa.helper.JsonHelper;
 import com.renfa.helper.OptionHelper;
+import com.renfa.model.Option;
 
 @CrossOrigin("*")
 @Controller
@@ -35,10 +38,14 @@ public class OptionController {
     @RequestMapping(value = "/{optionID}", method = RequestMethod.GET)
     @ResponseBody
     public String getOptionData(@PathVariable("optionID") String optionID) {
-        
-
-        return OptionHelper.getOptionValue(optionID).toString();
-
+        String output = "";
+        Option opt = OptionHelper.getOptionValue(optionID);
+        try {
+            output = JsonHelper.objectToString(opt);
+        } catch (JsonProcessingException ex) {
+            output = "{\"error\":\"Fail to load data\"}";
+        }
+        return output;
     }
 
 }
