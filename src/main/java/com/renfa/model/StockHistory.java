@@ -2,6 +2,8 @@ package com.renfa.model;
 
 import java.util.Date;
 
+import javax.persistence.Id;
+
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,19 +18,21 @@ import com.renfa.helper.OptionHelper;
 @ToString
 @Getter
 @Setter
-public class Option {
+public class StockHistory {
 
+    @Id
     private String ticker;
+
+    @Id
+    private Date priceDate;
 
     private float price;
 
-    private float qty;
+    private float high;
 
-    private int openInterest;
+    private float low;
 
-    private float strikePrice;
-
-    private Date expiryDate;
+    private float close;
 
     private boolean call;
 
