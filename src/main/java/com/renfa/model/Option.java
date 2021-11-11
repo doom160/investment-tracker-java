@@ -2,6 +2,8 @@ package com.renfa.model;
 
 import java.util.Date;
 
+import javax.persistence.DiscriminatorValue;
+
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,22 +11,13 @@ import lombok.ToString;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
-import com.renfa.helper.OptionHelper;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
 @Getter
 @Setter
-public class Option {
-
-    private String ticker;
-
-    private float price;
-
-    private float qty;
-
-    private int openInterest;
+@DiscriminatorValue("option")
+public class Option extends Equity {
 
     private float strikePrice;
 
@@ -32,9 +25,6 @@ public class Option {
 
     private boolean call;
 
-    @Getter(AccessLevel.NONE)
-    private String id;
-    public String getId() {
-        return OptionHelper.getOptionCode(ticker, expiryDate, call, strikePrice);
-    }
+    private String optionContractId;
+
 }
